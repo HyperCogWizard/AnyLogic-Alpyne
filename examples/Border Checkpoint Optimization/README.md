@@ -6,7 +6,7 @@ This is a modified version of the example from the built-in repository called "B
 
 ## Usage
 
-To start, open the model's source and export it as a zip inside the "ModelExported" folder. As the provided optimize.py script is written to execute parallel runs and the model includes a database, it's required to keep it as a zip file.
+To start, open the model's source and export it as a zip inside the "ModelExported" folder just like "ModelExported/BorderCheckpointOptimization.zip". As the provided optimize.py script is written to execute parallel runs and the model includes a database, it's required to keep it as a zip file.
 
 The model source has parameters for optionally overriding the schedules (for the arrival rates and number of inspectors for cars and buses) with fixed values. Though, this is mainly provided for the purpose of testing and for having the inspector parameters assignable in the Configuration space. 
 

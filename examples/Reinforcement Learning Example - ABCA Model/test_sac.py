@@ -36,7 +36,7 @@ def test_and_print(files: list[str]):
 
             # Try a run with the provided rate and action values to see how well it performs
             _ = sim.reset(arrivalRate=rate)
-            status = sim.take_action(numResourceA=a, numResourceB=b, processDelay=d, conveyorSpeed=s)
+            status = sim.take_action(nResA=a, nResB=b, processTime=d, conveyorSpeed=s)
             cpp = status.observation['costPerProduct']
 
             row.append(f"({a:2d}, {b:2d}, {d:5.2f}, {s:5.2f} | {cpp:6.1f})")

@@ -140,7 +140,7 @@ if __name__ == "__main__":
 
     rewards_per_eps = trainer.train(100, log_every=50, verbose_log=False, print_initial_board=True)
 
-    with open(r"ModelSource/qTable.json", "w") as f:  # point to/move this file in the model to have it be loaded
+    with open(r"./qTable.json", "w") as f:  # point to/move this file in the model to have it be loaded
         json.dump(trainer.q_table.tolist(), f)
 
     print("Count of reward occurrence:", Counter(rewards_per_eps))

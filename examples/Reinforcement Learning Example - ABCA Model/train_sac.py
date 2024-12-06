@@ -47,8 +47,8 @@ class ABCAEnv(AlpyneEnv):
 
     def _to_action(self, action: ActType) -> dict:
         # Explicitly round the value for resources (int values) and convert to simple types
-        return dict(numResourceA=int(action[0].round()), numResourceB=int(action[1].round()),
-                    processDelay=float(action[2]), conveyorSpeed=float(action[3]))
+        return dict(nResA=int(action[0].round()), nResB=int(action[1].round()),
+                    processTime=float(action[2]), conveyorSpeed=float(action[3]))
 
     def _calc_reward(self, status: SimStatus) -> SupportsFloat:
         # based on cost per product (CPP) value retrieved from the RL Observation

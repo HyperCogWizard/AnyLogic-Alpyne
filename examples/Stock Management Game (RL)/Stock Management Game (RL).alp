@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 *************************************************
-	         AnyLogic Project File 
-*************************************************	         
+	         AnyLogic Project File
+*************************************************
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.9.0.202404161156" AlpVersion="8.9.0">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.9.4.qualifier" AlpVersion="8.9.2">
 <Model>
 	<Id>1347625978601</Id>
 	<Name><![CDATA[Stock Management Game (RL)]]></Name>
@@ -20,10 +20,14 @@ To load the trained policy back into the original model, the Pypeline library is
 Original Model Description:
 This is a simple game, or a flight simulator – an interactive model that exposes its output to the user as the simulation is being performed and allows the user to make decisions, for example, to change parameters in a running model, and observe the effect.
 The game works in step-pause mode: the model executes for a certain period, then it is put in the paused state, the user observes the output, makes decisions, and starts simulation for the next period. 
-The model is a very simple supply chain. The user is to manage the stock by controlling the order rate. The sales rate is exogenous and is modeled as randomly changing.\]]></Description>
+The model is a very simple supply chain. The user is to manage the stock by controlling the order rate. The sales rate is exogenous and is modeled as randomly changing.]]></Description>
 	<EngineVersion>6</EngineVersion>
 	<JavaPackageName><![CDATA[stock_management_game1]]></JavaPackageName>
 	<ModelTimeUnit><![CDATA[Day]]></ModelTimeUnit>
+	
+	<Folders>
+		
+	</Folders>
 	<ActiveObjectClasses>
 		<!--   =========   Active Object Class   ========  -->
 		<ActiveObjectClass>
@@ -89,9 +93,7 @@ if (mode == 3) {
 					<RowsCountCode><![CDATA[100]]></RowsCountCode>
 					<NeigborhoodType>MOORE</NeigborhoodType>
 					<LayoutType>USER_DEF</LayoutType>
-					<LayoutTypeApplyOnStartup>true</LayoutTypeApplyOnStartup>
 					<NetworkType>USER_DEF</NetworkType>
-					<NetworkTypeApplyOnStartup>true</NetworkTypeApplyOnStartup>
 					<ConnectionsPerAgentCode><![CDATA[2]]></ConnectionsPerAgentCode>
 					<ConnectionsRangeCode><![CDATA[50]]></ConnectionsRangeCode>
 					<NeighborLinkFractionCode><![CDATA[0.95]]></NeighborLinkFractionCode>
@@ -778,7 +780,7 @@ if (mode == 3) {
 					<Id>1347629230788</Id>
 					<Name><![CDATA[ExogenousDemandChange]]></Name>
 					<X>530</X><Y>160</Y>
-					<Label><X>-165</X><Y>0</Y></Label>
+					<Label><X>-100</X><Y>35</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
@@ -1023,7 +1025,7 @@ stockAtLastAction = Stock;]]></Body>
 						<Parameter>
 							<Name><![CDATA[enable]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[mode == 3 // testing]]></Code>
+								<Code><![CDATA[mode == 3]]></Code>
 							</Value>
 						</Parameter>
 						<Parameter>
@@ -1083,7 +1085,7 @@ stockAtLastAction = Stock;]]></Body>
 						<Code><![CDATA[100]]></Code>
 					</Replication>
 					<CollectionType>ARRAY_LIST_BASED</CollectionType>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -1099,12 +1101,6 @@ stockAtLastAction = Stock;]]></Body>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -1593,6 +1589,71 @@ runSimulation();]]></ActionCode>
 					</Font>
 					<Alignment>LEFT</Alignment>
 				</Text>
+				<Text>
+					<Id>1732828883468</Id>
+					<Name><![CDATA[text8]]></Name>
+					<X>435</X><Y>1085</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Works only in Testbed mode]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>10</Size>
+						<Style>2</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1732828932383</Id>
+					<Name><![CDATA[text9]]></Name>
+					<X>390</X><Y>1123</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<VisibleCode><![CDATA[mode == 3]]></VisibleCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-6632142</Color>
+					<Text><![CDATA[OK]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>14</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1732829070787</Id>
+					<Name><![CDATA[text11]]></Name>
+					<X>365</X><Y>1108</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<VisibleCode><![CDATA[mode != 3]]></VisibleCode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-4144960</Color>
+					<Text><![CDATA[DETACHED]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>14</Size>
+						<Style>1</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
 			</Presentation>
 
 				</Level>
@@ -1613,7 +1674,7 @@ runSimulation();]]></ActionCode>
 			</Areas>
 
 		</ActiveObjectClass>
-	</ActiveObjectClasses>	
+	</ActiveObjectClasses>
 	<DifferentialEquationsMethod>EULER</DifferentialEquationsMethod>
 	<MixedEquationsMethod>RK45_NEWTON</MixedEquationsMethod>
 	<AlgebraicEquationsMethod>MODIFIED_NEWTON</AlgebraicEquationsMethod>
@@ -1638,7 +1699,7 @@ runSimulation();]]></ActionCode>
 			</ExportExcelResourceReference>
 		</ExportSettings>
 	</Database>
-	
+
 	<RunConfiguration ActiveObjectClassId="1347625978602">
 		<Id>1537374970825</Id>
 		<Name><![CDATA[RunConfiguration]]></Name>
@@ -1663,7 +1724,7 @@ runSimulation();]]></ActionCode>
 		<Outputs>
 		</Outputs>
 	</RunConfiguration>
-	<Experiments>	
+	<Experiments>
 		<!--   =========   Simulation Experiment   ========  -->
 		<SimulationExperiment ActiveObjectClassId="1347625978602">
 			<Id>1347625978604</Id>
@@ -1923,7 +1984,7 @@ and is modeled as randomly changing.]]></Text>
 				<Text>
 					<Id>1632153159708</Id>
 					<Name><![CDATA[text4]]></Name>
-					<X>330</X><Y>70</Y>
+					<X>480</X><Y>50</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>true</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -2261,9 +2322,32 @@ To load the trained policy back into the original model, the Pypeline library is
 			</Presentation>
 
 				</Group>
+				<Text>
+					<Id>1721414118764</Id>
+					<Name><![CDATA[text11]]></Name>
+					<X>180</X><Y>70</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[See more at https://github.com/the-anylogic-company/Alpyne
+Or open the model folder and check the README file
+(right click on the model and choose "Open Model Folder")]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>12</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
 			</Presentation>
 
-			<Parameters>			
+			<Parameters>
 				<Parameter>
 					<ParameterName><![CDATA[mode]]></ParameterName>
 					<ParameterValue Class="CodeValue">
@@ -2312,21 +2396,21 @@ To load the trained policy back into the original model, the Pypeline library is
 						<Code><![CDATA[policyFile]]></Code>
 					</ParameterValue>
 				</Parameter>
-			</Parameters>			
+			</Parameters>
 			<PresentationProperties>
-				<EnableZoomAndPanning>true</EnableZoomAndPanning>
+				<EnableZoomAndPanning>false</EnableZoomAndPanning>
 				<ExecutionMode><![CDATA[realTimeScaled]]></ExecutionMode>
-				<Title><![CDATA[Stock Management Game : Simulation]]></Title>	
+				<Title><![CDATA[Stock Management Game : Simulation]]></Title>
 				<EnableDeveloperPanel>true</EnableDeveloperPanel>
 				<ShowDeveloperPanelOnStart>false</ShowDeveloperPanelOnStart>
 				<RealTimeScale>50.0</RealTimeScale>
 			</PresentationProperties>
 			<ModelTimeProperties>
 				<StopOption><![CDATA[Never]]></StopOption>
-				<InitialDate><![CDATA[1577836800000]]></InitialDate>	
-				<InitialTime><![CDATA[0.0]]></InitialTime>	
-				<FinalDate><![CDATA[1640995200000]]></FinalDate>	
-				<FinalTime><![CDATA[731.0]]></FinalTime>	
+				<InitialDate><![CDATA[1577836800000]]></InitialDate>
+				<InitialTime><![CDATA[0.0]]></InitialTime>
+				<FinalDate><![CDATA[1640995200000]]></FinalDate>
+				<FinalTime><![CDATA[731.0]]></FinalTime>
 			</ModelTimeProperties>
 			<BypassInitialScreen>false</BypassInitialScreen>
 		</SimulationExperiment>	

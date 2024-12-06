@@ -205,7 +205,7 @@ if __name__ == '__main__':
         return score
 
     # Read the shifts from the excel file in the source directory
-    wb = load_workbook(filename=r"ModelSource/schedules.xlsx")
+    wb = load_workbook(filename=r"./schedules.xlsx")
     ws = wb['inspectors']
     # the each shift slightly earlier to populate the model
     shifts = [(start-timedelta(hours=1), end)
@@ -233,7 +233,7 @@ if __name__ == '__main__':
         print(f"SHIFT {i+1} BEST: c={car_value:.0f}, b={bus_value:.0f} | {best}")
 
     # save changes to the original excel file
-    wb.save(r"ModelSource/schedules.xlsx")
+    wb.save(r"./schedules.xlsx")
 
     # now, create another instance just to run a full 24 hours to test the values
     # (0 inspectors is interpreted as using the schedule)

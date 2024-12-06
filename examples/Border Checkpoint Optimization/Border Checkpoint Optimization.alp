@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 *************************************************
-	         AnyLogic Project File 
-*************************************************	         
+	         AnyLogic Project File
+*************************************************
 -->
-<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.9.0.202404161156" AlpVersion="8.9.0">
+<AnyLogicWorkspace WorkspaceVersion="1.9" AnyLogicVersion="8.9.4.qualifier" AlpVersion="8.9.2">
 <Model>
 	<Id>1476194976766</Id>
 	<Name><![CDATA[Border Checkpoint Optimization]]></Name>
-	<Description><![CDATA[This sample model represents the process of crossing an international border at an official checkpoint. Passport control and vehicle inspection processes are separated for tourists arriving by buses and those who travel by car. Border checkpoint has one bus lane and three car lanes. Each lane can be used to inspect three vehicles at a time. The queue of vehicles is managed by the  streetlights. Tourists that arrive by car have their documents checked at one of the six border guard modules. Later on the car is inspected allowing tourists to leave the checkpoint if everything is all right. Suspicious cars can be also sent to the full car inspection box. All tourists that arrive by bus get off it in a special area in the immediate vicinity of the border checkpoint. They form a queue at the border guard office where two border guards check their documents while the bus is being inspected. Tourists who have passed border control return to their bus, the inspection of which must be finished by that time. When all tourists are back in the bus, it leaves the checkpoint.
+	<Description><![CDATA[This sample model represents the process of crossing an international border at an official checkpoint. Passport control and vehicle inspection processes are separated for tourists arriving by buses and those who travel by car. Border checkpoint has one bus lane and three car lanes. Each lane can be used to inspect three vehicles at a time. The queue of vehicles is managed by the streetlights. Tourists that arrive by car have their documents checked at one of the six border guard modules. Later on the car is inspected allowing tourists to leave the checkpoint if everything is all right. Suspicious cars can be also sent to the full car inspection box. All tourists that arrive by bus get off it in a special area in the immediate vicinity of the border checkpoint. They form a queue at the border guard office where two border guards check their documents while the bus is being inspected. Tourists who have passed border control return to their bus, the inspection of which must be finished by that time. When all tourists are back in the bus, it leaves the checkpoint.
 
 In this modified version of the "Border Checkpoint" model, the schedule for inspectors and arrivals of busses and cars are parameterized from an Excel file.
 The model parameters allow a choice to override any of these schedules with a constant value; this can also be changed during runtime.
@@ -16,6 +16,10 @@ With this change, you can optimize for the inputs during any one of the shifts.]
 	<EngineVersion>6</EngineVersion>
 	<JavaPackageName><![CDATA[border_checkpoint_optimization]]></JavaPackageName>
 	<ModelTimeUnit><![CDATA[Minute]]></ModelTimeUnit>
+	
+	<Folders>
+		
+	</Folders>
 	<ActiveObjectClasses>
 		<!--   =========   Active Object Class   ========  -->
 		<ActiveObjectClass>
@@ -77,9 +81,7 @@ import border_checkpoint_optimization.RLOptimization.Observation;]]></Import>
 					<RowsCountCode><![CDATA[100]]></RowsCountCode>
 					<NeigborhoodType>MOORE</NeigborhoodType>
 					<LayoutType>USER_DEF</LayoutType>
-					<LayoutTypeApplyOnStartup>true</LayoutTypeApplyOnStartup>
 					<NetworkType>USER_DEF</NetworkType>
-					<NetworkTypeApplyOnStartup>true</NetworkTypeApplyOnStartup>
 					<ConnectionsPerAgentCode><![CDATA[2]]></ConnectionsPerAgentCode>
 					<ConnectionsRangeCode><![CDATA[50]]></ConnectionsRangeCode>
 					<NeighborLinkFractionCode><![CDATA[0.95]]></NeighborLinkFractionCode>
@@ -147,7 +149,7 @@ import border_checkpoint_optimization.RLOptimization.Observation;]]></Import>
 				<Id>1476453323083</Id>
 				<Name><![CDATA[trafficLightCarLanes]]></Name>
 				<X>-450</X><Y>470</Y>
-				<Label><X>0</X><Y>-20</Y></Label>
+				<Label><X>-30</X><Y>-20</Y></Label>
 				<PublicFlag>true</PublicFlag>
 				<PresentationFlag>false</PresentationFlag>
 				<ShowLabel>true</ShowLabel>
@@ -184,22 +186,9 @@ import border_checkpoint_optimization.RLOptimization.Observation;]]></Import>
 			</TrafficLight>
 			<Variables>
 				<Variable Class="PlainVariable">
-					<Id>1476709416621</Id>
-					<Name><![CDATA[page]]></Name>
-					<ExcludeFromBuild>true</ExcludeFromBuild>
-					<X>-450</X><Y>150</Y>
-					<Label><X>10</X><Y>0</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>true</ShowLabel>
-					<Properties SaveInSnapshot="true" Constant="false" AccessType="public" StaticVariable="false">
-						<Type><![CDATA[int]]></Type>        
-					</Properties>
-				</Variable>
-				<Variable Class="PlainVariable">
 					<Id>1476711216930</Id>
 					<Name><![CDATA[lightBlue]]></Name>
-					<X>-450</X><Y>200</Y>
+					<X>-450</X><Y>150</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -214,7 +203,7 @@ import border_checkpoint_optimization.RLOptimization.Observation;]]></Import>
 				<Variable Class="PlainVariable">
 					<Id>1476739134618</Id>
 					<Name><![CDATA[cameraId]]></Name>
-					<X>-450</X><Y>250</Y>
+					<X>-450</X><Y>200</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -226,7 +215,7 @@ import border_checkpoint_optimization.RLOptimization.Observation;]]></Import>
 				<Variable Class="PlainVariable">
 					<Id>1488557279754</Id>
 					<Name><![CDATA[selectedViewArea]]></Name>
-					<X>-450</X><Y>300</Y>
+					<X>-450</X><Y>250</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1127,7 +1116,7 @@ import border_checkpoint_optimization.RLOptimization.Observation;]]></Import>
 					<ReturnType><![CDATA[double]]></ReturnType>
 					<Id>1488557279752</Id>
 					<Name><![CDATA[navigate]]></Name>
-					<X>-450</X><Y>350</Y>
+					<X>-450</X><Y>300</Y>
 					<Label><X>10</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
@@ -1660,6 +1649,12 @@ if (checkbox.isSelected()) {
 						<Parameter>
 							<Name><![CDATA[onWayNotFound]]></Name>
 						</Parameter>
+						<Parameter>
+							<Name><![CDATA[parkingLotDestination]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[parkingSpaceIndex]]></Name>
+						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
 					<Replication Class="CodeValue">
@@ -1670,7 +1665,7 @@ if (checkbox.isSelected()) {
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -1686,12 +1681,6 @@ if (checkbox.isSelected()) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -1727,7 +1716,7 @@ if (checkbox.isSelected()) {
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[busTimeInSystem.add(time()-car.getFlowchartEntryTime());]]></Code>
+								<Code><![CDATA[busTimeInSystem.add(time() - car.getFlowchartEntryTime());]]></Code>
 							</Value>
 						</Parameter>
 					</Parameters>
@@ -1740,7 +1729,7 @@ if (checkbox.isSelected()) {
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -1756,12 +1745,6 @@ if (checkbox.isSelected()) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -1830,6 +1813,12 @@ if (checkbox.isSelected()) {
 						<Parameter>
 							<Name><![CDATA[onWayNotFound]]></Name>
 						</Parameter>
+						<Parameter>
+							<Name><![CDATA[parkingLotDestination]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[parkingSpaceIndex]]></Name>
+						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
 					<Replication Class="CodeValue">
@@ -1840,7 +1829,7 @@ if (checkbox.isSelected()) {
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -1856,12 +1845,6 @@ if (checkbox.isSelected()) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -1961,7 +1944,7 @@ if (checkbox.isSelected()) {
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -1977,12 +1960,6 @@ if (checkbox.isSelected()) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -2042,33 +2019,18 @@ if (checkbox.isSelected()) {
 						<Code><![CDATA[100]]></Code>
 					</Replication>
 					<CollectionType>ARRAY_LIST_BASED</CollectionType>
-					<InEnvironment>true</InEnvironment>	
+					<InEnvironment>true</InEnvironment>
 					<InitialSpeedCode Class="CodeUnitValue">
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
-					<XCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</XCode>
-					<YCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</YCode>
-					<ZCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ZCode>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<ColumnCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</ColumnCode>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -2137,6 +2099,12 @@ if (checkbox.isSelected()) {
 						<Parameter>
 							<Name><![CDATA[onWayNotFound]]></Name>
 						</Parameter>
+						<Parameter>
+							<Name><![CDATA[parkingLotDestination]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[parkingSpaceIndex]]></Name>
+						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
 					<Replication Class="CodeValue">
@@ -2147,7 +2115,7 @@ if (checkbox.isSelected()) {
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -2163,12 +2131,6 @@ if (checkbox.isSelected()) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -2204,7 +2166,7 @@ if (checkbox.isSelected()) {
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[carTimeInSystem.add(time()-car.getFlowchartEntryTime());]]></Code>
+								<Code><![CDATA[carTimeInSystem.add(time() - car.getFlowchartEntryTime());]]></Code>
 							</Value>
 						</Parameter>
 					</Parameters>
@@ -2217,7 +2179,7 @@ if (checkbox.isSelected()) {
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -2233,12 +2195,6 @@ if (checkbox.isSelected()) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -2313,6 +2269,12 @@ if (checkbox.isSelected()) {
 						<Parameter>
 							<Name><![CDATA[onWayNotFound]]></Name>
 						</Parameter>
+						<Parameter>
+							<Name><![CDATA[parkingLotDestination]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[parkingSpaceIndex]]></Name>
+						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
 					<Replication Class="CodeValue">
@@ -2323,7 +2285,7 @@ if (checkbox.isSelected()) {
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -2339,12 +2301,6 @@ if (checkbox.isSelected()) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -2423,33 +2379,18 @@ if (checkbox.isSelected()) {
 						<Code><![CDATA[100]]></Code>
 					</Replication>
 					<CollectionType>ARRAY_LIST_BASED</CollectionType>
-					<InEnvironment>true</InEnvironment>	
+					<InEnvironment>true</InEnvironment>
 					<InitialSpeedCode Class="CodeUnitValue">
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
-					<XCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</XCode>
-					<YCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</YCode>
-					<ZCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ZCode>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<ColumnCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</ColumnCode>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -2714,7 +2655,7 @@ if (checkbox.isSelected()) {
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -2730,12 +2671,6 @@ if (checkbox.isSelected()) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -2833,7 +2768,7 @@ if (checkbox.isSelected()) {
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -2849,12 +2784,6 @@ if (checkbox.isSelected()) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -2947,7 +2876,7 @@ if (checkbox.isSelected()) {
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -2963,12 +2892,6 @@ if (checkbox.isSelected()) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -3068,7 +2991,7 @@ if (checkbox.isSelected()) {
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -3084,12 +3007,6 @@ if (checkbox.isSelected()) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -3347,7 +3264,7 @@ if (checkbox.isSelected()) {
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -3363,12 +3280,6 @@ if (checkbox.isSelected()) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -3466,7 +3377,7 @@ if (checkbox.isSelected()) {
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -3482,12 +3393,6 @@ if (checkbox.isSelected()) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -3599,7 +3504,7 @@ if (checkbox.isSelected()) {
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -3615,12 +3520,6 @@ if (checkbox.isSelected()) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -3686,6 +3585,12 @@ if (checkbox.isSelected()) {
 						<Parameter>
 							<Name><![CDATA[onWayNotFound]]></Name>
 						</Parameter>
+						<Parameter>
+							<Name><![CDATA[parkingLotDestination]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[parkingSpaceIndex]]></Name>
+						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
 					<Replication Class="CodeValue">
@@ -3696,7 +3601,7 @@ if (checkbox.isSelected()) {
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -3712,12 +3617,6 @@ if (checkbox.isSelected()) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -3753,7 +3652,7 @@ if (checkbox.isSelected()) {
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[carTimeInSystem.add(time()-car.getFlowchartEntryTime());]]></Code>
+								<Code><![CDATA[carTimeInSystem.add(time() - car.getFlowchartEntryTime());]]></Code>
 							</Value>
 						</Parameter>
 					</Parameters>
@@ -3766,7 +3665,7 @@ if (checkbox.isSelected()) {
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -3782,12 +3681,6 @@ if (checkbox.isSelected()) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -3853,6 +3746,12 @@ if (checkbox.isSelected()) {
 						<Parameter>
 							<Name><![CDATA[onWayNotFound]]></Name>
 						</Parameter>
+						<Parameter>
+							<Name><![CDATA[parkingLotDestination]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[parkingSpaceIndex]]></Name>
+						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
 					<Replication Class="CodeValue">
@@ -3863,7 +3762,7 @@ if (checkbox.isSelected()) {
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -3879,12 +3778,6 @@ if (checkbox.isSelected()) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -3920,7 +3813,7 @@ if (checkbox.isSelected()) {
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[carTimeInSystem.add(time()-car.getFlowchartEntryTime());]]></Code>
+								<Code><![CDATA[carTimeInSystem.add(time() - car.getFlowchartEntryTime());]]></Code>
 							</Value>
 						</Parameter>
 					</Parameters>
@@ -3933,7 +3826,7 @@ if (checkbox.isSelected()) {
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -3949,12 +3842,6 @@ if (checkbox.isSelected()) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -4101,7 +3988,7 @@ if (checkbox.isSelected()) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -4117,12 +4004,6 @@ if (checkbox.isSelected()) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -4472,7 +4353,7 @@ if (checkbox.isSelected()) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -4488,12 +4369,6 @@ if (checkbox.isSelected()) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -4552,7 +4427,7 @@ if (checkbox.isSelected()) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -4568,12 +4443,6 @@ if (checkbox.isSelected()) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -4629,7 +4498,7 @@ if (checkbox.isSelected()) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -4645,12 +4514,6 @@ if (checkbox.isSelected()) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -4711,7 +4574,7 @@ busTimeAtCheckpoint.add(time() - ((Bus)car).timeEnteringCheckpoint);]]></Code>
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -4727,12 +4590,6 @@ busTimeAtCheckpoint.add(time() - ((Bus)car).timeEnteringCheckpoint);]]></Code>
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -4824,7 +4681,7 @@ busTimeAtCheckpoint.add(time() - ((Bus)car).timeEnteringCheckpoint);]]></Code>
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -4840,12 +4697,6 @@ busTimeAtCheckpoint.add(time() - ((Bus)car).timeEnteringCheckpoint);]]></Code>
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -5146,7 +4997,7 @@ busTimeAtCheckpoint.add(time() - ((Bus)car).timeEnteringCheckpoint);]]></Code>
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -5162,12 +5013,6 @@ busTimeAtCheckpoint.add(time() - ((Bus)car).timeEnteringCheckpoint);]]></Code>
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -5256,7 +5101,7 @@ busTimeAtCheckpoint.add(time() - ((Bus)car).timeEnteringCheckpoint);]]></Code>
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -5272,12 +5117,6 @@ busTimeAtCheckpoint.add(time() - ((Bus)car).timeEnteringCheckpoint);]]></Code>
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -5366,7 +5205,7 @@ busTimeAtCheckpoint.add(time() - ((Bus)car).timeEnteringCheckpoint);]]></Code>
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -5382,12 +5221,6 @@ busTimeAtCheckpoint.add(time() - ((Bus)car).timeEnteringCheckpoint);]]></Code>
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -5514,7 +5347,7 @@ busTimeAtCheckpoint.add(time() - ((Bus)car).timeEnteringCheckpoint);]]></Code>
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -5530,12 +5363,6 @@ busTimeAtCheckpoint.add(time() - ((Bus)car).timeEnteringCheckpoint);]]></Code>
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -5624,7 +5451,7 @@ busTimeAtCheckpoint.add(time() - ((Bus)car).timeEnteringCheckpoint);]]></Code>
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -5640,12 +5467,6 @@ busTimeAtCheckpoint.add(time() - ((Bus)car).timeEnteringCheckpoint);]]></Code>
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -5940,7 +5761,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -5956,12 +5777,6 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -6020,7 +5835,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -6036,12 +5851,6 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -6100,7 +5909,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -6116,12 +5925,6 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -6214,7 +6017,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -6230,12 +6033,6 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -6294,7 +6091,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -6310,12 +6107,6 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -6374,7 +6165,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -6390,12 +6181,6 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -6488,7 +6273,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -6504,12 +6289,6 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -6568,7 +6347,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -6584,12 +6363,6 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -6648,7 +6421,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -6664,12 +6437,6 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -7042,7 +6809,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -7058,12 +6825,6 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -7219,7 +6980,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -7235,12 +6996,6 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -7444,7 +7199,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -7460,12 +7215,6 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -7557,7 +7306,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -7573,12 +7322,6 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -8484,7 +8227,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476716697550</Id>
 					<Name><![CDATA[tree_2]]></Name>
@@ -8517,7 +8260,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476716702386</Id>
 					<Name><![CDATA[tree_3]]></Name>
@@ -8550,7 +8293,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476716706410</Id>
 					<Name><![CDATA[tree_4]]></Name>
@@ -8583,7 +8326,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476716711340</Id>
 					<Name><![CDATA[tree_5]]></Name>
@@ -8620,7 +8363,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476716715724</Id>
 					<Name><![CDATA[tree_6]]></Name>
@@ -8657,7 +8400,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476716719639</Id>
 					<Name><![CDATA[tree_7]]></Name>
@@ -8694,7 +8437,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476716726441</Id>
 					<Name><![CDATA[tree_8]]></Name>
@@ -8727,7 +8470,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476716735395</Id>
 					<Name><![CDATA[tree_9]]></Name>
@@ -8764,7 +8507,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476716739779</Id>
 					<Name><![CDATA[tree_10]]></Name>
@@ -8797,7 +8540,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476716743882</Id>
 					<Name><![CDATA[tree_11]]></Name>
@@ -8830,7 +8573,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476716751666</Id>
 					<Name><![CDATA[tree_12]]></Name>
@@ -8867,7 +8610,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476716755535</Id>
 					<Name><![CDATA[tree_13]]></Name>
@@ -8904,7 +8647,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476716758530</Id>
 					<Name><![CDATA[tree_14]]></Name>
@@ -8941,7 +8684,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476716762071</Id>
 					<Name><![CDATA[tree_15]]></Name>
@@ -8978,7 +8721,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+</Figure3D>
 				<EmbeddedObjectPresentation>
 					<Id>1476733116367</Id>
 					<Name><![CDATA[carCrossCheckpoint_presentation]]></Name>
@@ -8991,7 +8734,6 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<DrawingMode>AGENT_CURRENT_POSITION</DrawingMode>
 					<ScaleType>AUTOMATICALLY_CALCULATED</ScaleType>
 					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
 					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
@@ -9034,7 +8776,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476716868120</Id>
 					<Name><![CDATA[hangar_3]]></Name>
@@ -9071,7 +8813,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476716926059</Id>
 					<Name><![CDATA[warehouse]]></Name>
@@ -9116,7 +8858,7 @@ carTimeAtCheckpoint.add(time() - ((Car)car).timeEnteringCheckpoint);]]></Code>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+</Figure3D>
 				<Light3D>
 					<Id>1476737997505</Id>
 					<Name><![CDATA[light]]></Name>
@@ -9936,7 +9678,6 @@ window3d.setCamera(busCheckCamera);]]></OnClickCode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<DrawingMode>AGENT_CURRENT_POSITION</DrawingMode>
 					<ScaleType>AUTOMATICALLY_CALCULATED</ScaleType>
 					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
 					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
@@ -10798,9 +10539,7 @@ window3d.setCamera(busCheckCamera);]]></OnClickCode>
 					<RowsCountCode><![CDATA[100]]></RowsCountCode>
 					<NeigborhoodType>MOORE</NeigborhoodType>
 					<LayoutType>USER_DEF</LayoutType>
-					<LayoutTypeApplyOnStartup>true</LayoutTypeApplyOnStartup>
 					<NetworkType>USER_DEF</NetworkType>
-					<NetworkTypeApplyOnStartup>true</NetworkTypeApplyOnStartup>
 					<ConnectionsPerAgentCode><![CDATA[2]]></ConnectionsPerAgentCode>
 					<ConnectionsRangeCode><![CDATA[50]]></ConnectionsRangeCode>
 					<NeighborLinkFractionCode><![CDATA[0.95]]></NeighborLinkFractionCode>
@@ -11041,7 +10780,7 @@ window3d.setCamera(busCheckCamera);]]></OnClickCode>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
 					<VisibleCode><![CDATA[appearanceType == 1]]></VisibleCode>
-				</Figure3D>
+</Figure3D>
 				<Text>
 					<Id>1478186132797</Id>
 					<Name><![CDATA[text]]></Name>
@@ -11130,7 +10869,7 @@ window3d.setCamera(busCheckCamera);]]></OnClickCode>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
 					<VisibleCode><![CDATA[appearanceType == 2;]]></VisibleCode>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1478865556335</Id>
 					<Name><![CDATA[bus_4]]></Name>
@@ -11178,7 +10917,7 @@ window3d.setCamera(busCheckCamera);]]></OnClickCode>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
 					<VisibleCode><![CDATA[appearanceType == 3]]></VisibleCode>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1478865603213</Id>
 					<Name><![CDATA[bus_5]]></Name>
@@ -11227,7 +10966,7 @@ window3d.setCamera(busCheckCamera);]]></OnClickCode>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
 					<VisibleCode><![CDATA[appearanceType == 4]]></VisibleCode>
-				</Figure3D>
+</Figure3D>
 			</Presentation>
 
 				</Level>
@@ -11290,9 +11029,7 @@ window3d.setCamera(busCheckCamera);]]></OnClickCode>
 					<RowsCountCode><![CDATA[100]]></RowsCountCode>
 					<NeigborhoodType>MOORE</NeigborhoodType>
 					<LayoutType>USER_DEF</LayoutType>
-					<LayoutTypeApplyOnStartup>true</LayoutTypeApplyOnStartup>
 					<NetworkType>USER_DEF</NetworkType>
-					<NetworkTypeApplyOnStartup>true</NetworkTypeApplyOnStartup>
 					<ConnectionsPerAgentCode><![CDATA[2]]></ConnectionsPerAgentCode>
 					<ConnectionsRangeCode><![CDATA[50]]></ConnectionsRangeCode>
 					<NeighborLinkFractionCode><![CDATA[0.95]]></NeighborLinkFractionCode>
@@ -11640,9 +11377,7 @@ window3d.setCamera(busCheckCamera);]]></OnClickCode>
 					<RowsCountCode><![CDATA[100]]></RowsCountCode>
 					<NeigborhoodType>MOORE</NeigborhoodType>
 					<LayoutType>USER_DEF</LayoutType>
-					<LayoutTypeApplyOnStartup>true</LayoutTypeApplyOnStartup>
 					<NetworkType>USER_DEF</NetworkType>
-					<NetworkTypeApplyOnStartup>true</NetworkTypeApplyOnStartup>
 					<ConnectionsPerAgentCode><![CDATA[2]]></ConnectionsPerAgentCode>
 					<ConnectionsRangeCode><![CDATA[50]]></ConnectionsRangeCode>
 					<NeighborLinkFractionCode><![CDATA[0.95]]></NeighborLinkFractionCode>
@@ -12824,7 +12559,7 @@ window3d.setCamera(busCheckCamera);]]></OnClickCode>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -12840,12 +12575,6 @@ window3d.setCamera(busCheckCamera);]]></OnClickCode>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -12969,7 +12698,7 @@ window3d.setCamera(busCheckCamera);]]></OnClickCode>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -12985,12 +12714,6 @@ window3d.setCamera(busCheckCamera);]]></OnClickCode>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -13085,7 +12808,7 @@ window3d.setCamera(busCheckCamera);]]></OnClickCode>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -13101,12 +12824,6 @@ window3d.setCamera(busCheckCamera);]]></OnClickCode>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -13163,7 +12880,7 @@ if ( ped.bus.nReadyPassengers == ped.bus.nPassengers )
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -13179,12 +12896,6 @@ if ( ped.bus.nReadyPassengers == ped.bus.nPassengers )
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -13281,7 +12992,7 @@ if ( ped.bus.nReadyPassengers == ped.bus.nPassengers )
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -13297,12 +13008,6 @@ if ( ped.bus.nReadyPassengers == ped.bus.nPassengers )
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -13395,7 +13100,7 @@ for ( Tourist t : waitBusInspection.getPeds() ) {
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -13411,12 +13116,6 @@ for ( Tourist t : waitBusInspection.getPeds() ) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -13482,6 +13181,9 @@ for ( Tourist t : waitBusInspection.getPeds() ) {
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onPickup]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[agent.sit();]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
@@ -13496,7 +13198,7 @@ for ( Tourist t : waitBusInspection.getPeds() ) {
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -13512,12 +13214,6 @@ for ( Tourist t : waitBusInspection.getPeds() ) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -13612,7 +13308,7 @@ for ( Tourist t : waitBusInspection.getPeds() ) {
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -13628,12 +13324,6 @@ for ( Tourist t : waitBusInspection.getPeds() ) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -13697,7 +13387,7 @@ for ( Tourist t : waitBusInspection.getPeds() ) {
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -13713,12 +13403,6 @@ for ( Tourist t : waitBusInspection.getPeds() ) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -13793,6 +13477,12 @@ for ( Tourist t : waitBusInspection.getPeds() ) {
 						<Parameter>
 							<Name><![CDATA[onWayNotFound]]></Name>
 						</Parameter>
+						<Parameter>
+							<Name><![CDATA[parkingLotDestination]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[parkingSpaceIndex]]></Name>
+						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
 					<Replication Class="CodeValue">
@@ -13803,7 +13493,7 @@ for ( Tourist t : waitBusInspection.getPeds() ) {
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -13819,12 +13509,6 @@ for ( Tourist t : waitBusInspection.getPeds() ) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -13906,6 +13590,12 @@ hold.unblock();]]></Code>
 						<Parameter>
 							<Name><![CDATA[onWayNotFound]]></Name>
 						</Parameter>
+						<Parameter>
+							<Name><![CDATA[parkingLotDestination]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[parkingSpaceIndex]]></Name>
+						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
 					<Replication Class="CodeValue">
@@ -13916,7 +13606,7 @@ hold.unblock();]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -13932,12 +13622,6 @@ hold.unblock();]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -14003,12 +13687,12 @@ hold.unblock();]]></Code>
 						<Code><![CDATA[100]]></Code>
 					</Replication>
 					<CollectionType>ARRAY_LIST_BASED</CollectionType>
-					<InEnvironment>true</InEnvironment>	
+					<InEnvironment>true</InEnvironment>
 					<InitialSpeedCode Class="CodeUnitValue">
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -14024,12 +13708,6 @@ hold.unblock();]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -14118,7 +13796,7 @@ hold.unblock();]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -14134,12 +13812,6 @@ hold.unblock();]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -14209,7 +13881,7 @@ hold.unblock();]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -14225,12 +13897,6 @@ hold.unblock();]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -14339,7 +14005,7 @@ hold.unblock();]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -14355,12 +14021,6 @@ hold.unblock();]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -14671,7 +14331,7 @@ hold.unblock();]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -14687,12 +14347,6 @@ hold.unblock();]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -14900,7 +14554,7 @@ hold.unblock();]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -14916,12 +14570,6 @@ hold.unblock();]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -15016,7 +14664,7 @@ freeGatheredPassengers( ped );]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -15032,12 +14680,6 @@ freeGatheredPassengers( ped );]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -15083,7 +14725,7 @@ freeGatheredPassengers( ped );]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -15099,12 +14741,6 @@ freeGatheredPassengers( ped );]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -15177,7 +14813,7 @@ freeGatheredPassengers( ped );]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -15193,12 +14829,6 @@ freeGatheredPassengers( ped );]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -15301,7 +14931,7 @@ freeGatheredPassengers( ped );]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -15317,12 +14947,6 @@ freeGatheredPassengers( ped );]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -15377,7 +15001,7 @@ freeGatheredPassengers( ped );]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -15393,12 +15017,6 @@ freeGatheredPassengers( ped );]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -15512,7 +15130,7 @@ freeGatheredPassengers( ped );]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -15528,12 +15146,6 @@ freeGatheredPassengers( ped );]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -15651,7 +15263,7 @@ freeGatheredPassengers( ped );]]></Code>
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -15667,12 +15279,6 @@ freeGatheredPassengers( ped );]]></Code>
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -15886,7 +15492,7 @@ freeGatheredPassengers( ped );]]></Code>
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -15902,12 +15508,6 @@ freeGatheredPassengers( ped );]]></Code>
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -16073,7 +15673,7 @@ freeGatheredPassengers( ped );]]></Code>
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -16089,12 +15689,6 @@ freeGatheredPassengers( ped );]]></Code>
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -16212,7 +15806,7 @@ freeGatheredPassengers( ped );]]></Code>
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -16228,12 +15822,6 @@ freeGatheredPassengers( ped );]]></Code>
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -16786,7 +16374,7 @@ freeGatheredPassengers( ped );]]></Code>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476777541542</Id>
 					<Name><![CDATA[bus_1]]></Name>
@@ -16831,7 +16419,7 @@ freeGatheredPassengers( ped );]]></Code>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+</Figure3D>
 			</Presentation>
 
 				</Group>
@@ -16867,7 +16455,7 @@ freeGatheredPassengers( ped );]]></Code>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476788689919</Id>
 					<Name><![CDATA[officeWorker]]></Name>
@@ -16912,7 +16500,7 @@ freeGatheredPassengers( ped );]]></Code>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476788715779</Id>
 					<Name><![CDATA[table_3]]></Name>
@@ -16945,7 +16533,7 @@ freeGatheredPassengers( ped );]]></Code>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476788744839</Id>
 					<Name><![CDATA[officeWorker2]]></Name>
@@ -16990,7 +16578,7 @@ freeGatheredPassengers( ped );]]></Code>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476788814231</Id>
 					<Name><![CDATA[turnstile_open]]></Name>
@@ -17027,7 +16615,7 @@ freeGatheredPassengers( ped );]]></Code>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476788868561</Id>
 					<Name><![CDATA[turnstile_open1]]></Name>
@@ -17064,7 +16652,7 @@ freeGatheredPassengers( ped );]]></Code>
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+</Figure3D>
 				<Polyline>
 					<Id>1476789100865</Id>
 					<Name><![CDATA[polyline]]></Name>
@@ -17539,7 +17127,7 @@ freeGatheredPassengers( ped );]]></Code>
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -17555,12 +17143,6 @@ freeGatheredPassengers( ped );]]></Code>
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -18163,7 +17745,7 @@ freeGatheredPassengers( ped );]]></Code>
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -18179,12 +17761,6 @@ freeGatheredPassengers( ped );]]></Code>
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -18298,7 +17874,7 @@ freeGatheredPassengers( ped );]]></Code>
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -18314,12 +17890,6 @@ freeGatheredPassengers( ped );]]></Code>
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -18433,7 +18003,7 @@ freeGatheredPassengers( ped );]]></Code>
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -18449,12 +18019,6 @@ freeGatheredPassengers( ped );]]></Code>
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -18611,9 +18175,7 @@ freeGatheredPassengers( ped );]]></Code>
 					<RowsCountCode><![CDATA[100]]></RowsCountCode>
 					<NeigborhoodType>MOORE</NeigborhoodType>
 					<LayoutType>USER_DEF</LayoutType>
-					<LayoutTypeApplyOnStartup>true</LayoutTypeApplyOnStartup>
 					<NetworkType>USER_DEF</NetworkType>
-					<NetworkTypeApplyOnStartup>true</NetworkTypeApplyOnStartup>
 					<ConnectionsPerAgentCode><![CDATA[2]]></ConnectionsPerAgentCode>
 					<ConnectionsRangeCode><![CDATA[50]]></ConnectionsRangeCode>
 					<NeighborLinkFractionCode><![CDATA[0.95]]></NeighborLinkFractionCode>
@@ -18778,6 +18340,20 @@ freeGatheredPassengers( ped );]]></Code>
 
 				</Variable>
 			</Variables>
+			<Functions>
+				<Function AccessType="default" StaticFunction="false">
+					<ReturnModificator>VOID</ReturnModificator>
+					<ReturnType><![CDATA[double]]></ReturnType>
+					<Id>1732827618851</Id>
+					<Name><![CDATA[sit]]></Name>
+					<X>100</X><Y>250</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>true</ShowLabel>
+					<Body><![CDATA[g_animation.setVisible(false);]]></Body>
+				</Function>
+			</Functions>
 			<AgentLinks>
 				<AgentLink>
 					<Id>1476255478242</Id>
@@ -18813,6 +18389,62 @@ freeGatheredPassengers( ped );]]></Code>
 					<DrawMode>SHAPE_DRAW_2D3D</DrawMode>
 					<Z>0</Z>
 					<LevelVisibility>ALWAYS_SHOW</LevelVisibility>
+
+			<Presentation>
+				<Text>
+					<Id>1478606624174</Id>
+					<Name><![CDATA[text]]></Name>
+					<X>90</X><Y>90</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-14774017</Color>
+					<Text><![CDATA[Appearance elements]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>12</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Text>
+					<Id>1478606663618</Id>
+					<Name><![CDATA[text1]]></Name>
+					<X>90</X><Y>290</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>false</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-14774017</Color>
+					<Text><![CDATA[Checkpoint cross elements]]></Text>
+					<Font>
+						<Name>SansSerif</Name>
+						<Size>12</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>LEFT</Alignment>
+				</Text>
+				<Group>
+					<Id>1732828025760</Id>
+					<Name><![CDATA[g_animation]]></Name>
+					<X>0</X><Y>0</Y>
+					<Label><X>10</X><Y>0</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_3D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
 
 			<Presentation>
 				<Figure3D>
@@ -18860,7 +18492,7 @@ freeGatheredPassengers( ped );]]></Code>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
 					<VisibleCode><![CDATA[appearanceType == 1;]]></VisibleCode>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476801858447</Id>
 					<Name><![CDATA[woman_1]]></Name>
@@ -18926,7 +18558,7 @@ freeGatheredPassengers( ped );]]></Code>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
 					<VisibleCode><![CDATA[appearanceType == 6]]></VisibleCode>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476801982907</Id>
 					<Name><![CDATA[person1]]></Name>
@@ -18979,7 +18611,7 @@ freeGatheredPassengers( ped );]]></Code>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
 					<VisibleCode><![CDATA[appearanceType == 3]]></VisibleCode>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476802024807</Id>
 					<Name><![CDATA[person2]]></Name>
@@ -19031,7 +18663,7 @@ freeGatheredPassengers( ped );]]></Code>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
 					<VisibleCode><![CDATA[appearanceType == 4]]></VisibleCode>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476802209157</Id>
 					<Name><![CDATA[woman_4]]></Name>
@@ -19099,7 +18731,7 @@ freeGatheredPassengers( ped );]]></Code>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
 					<VisibleCode><![CDATA[appearanceType == 5]]></VisibleCode>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476802293837</Id>
 					<Name><![CDATA[woman_5]]></Name>
@@ -19154,9 +18786,9 @@ freeGatheredPassengers( ped );]]></Code>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
 					<VisibleCode><![CDATA[appearanceType == 2]]></VisibleCode>
-				</Figure3D>
+</Figure3D>
 				<Oval>
-					<Id>1476885803990</Id>
+					<Id>1732828067220</Id>
 					<Name><![CDATA[oval4]]></Name>
 					<X>0</X><Y>0</Y>
 					<Label><X>0</X><Y>0</Y></Label>
@@ -19166,60 +18798,21 @@ freeGatheredPassengers( ped );]]></Code>
 					<DrawMode>SHAPE_DRAW_2D</DrawMode>
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
-					<ZHeight>10</ZHeight>
+					<ZHeight>0</ZHeight>
 					<LineWidth>1</LineWidth>
 					<LineColor/>
 					<LineMaterial>null</LineMaterial>
 					<LineStyle>SOLID</LineStyle>
-					<RadiusX>3</RadiusX>
+					<RadiusX>2.5</RadiusX>
 					<RadiusY>40</RadiusY>
 					<Rotation>0.0</Rotation>
 					<FillColor>-14774017</FillColor>
 					<FillColorCode><![CDATA[colors.get(appearanceType - 1)]]></FillColorCode>
 					<FillMaterial>null</FillMaterial>
 				</Oval>
-				<Text>
-					<Id>1478606624174</Id>
-					<Name><![CDATA[text]]></Name>
-					<X>90</X><Y>90</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-14774017</Color>
-					<Text><![CDATA[Appearance elements]]></Text>
-					<Font>
-						<Name>SansSerif</Name>
-						<Size>12</Size>
-						<Style>0</Style>
-					</Font>
-					<Alignment>LEFT</Alignment>
-				</Text>
-				<Text>
-					<Id>1478606663618</Id>
-					<Name><![CDATA[text1]]></Name>
-					<X>90</X><Y>290</Y>
-					<Label><X>0</X><Y>-10</Y></Label>
-					<PublicFlag>false</PublicFlag>
-					<PresentationFlag>true</PresentationFlag>
-					<ShowLabel>false</ShowLabel>
-					<DrawMode>SHAPE_DRAW_2D</DrawMode>
-					<EmbeddedIcon>false</EmbeddedIcon>
-					<Z>0</Z>
-					<Rotation>0.0</Rotation>
-					<Color>-14774017</Color>
-					<Text><![CDATA[Checkpoint cross elements]]></Text>
-					<Font>
-						<Name>SansSerif</Name>
-						<Size>12</Size>
-						<Style>0</Style>
-					</Font>
-					<Alignment>LEFT</Alignment>
-				</Text>
+			</Presentation>
+
+				</Group>
 			</Presentation>
 
 				</Level>
@@ -19282,9 +18875,7 @@ freeGatheredPassengers( ped );]]></Code>
 					<RowsCountCode><![CDATA[100]]></RowsCountCode>
 					<NeigborhoodType>MOORE</NeigborhoodType>
 					<LayoutType>USER_DEF</LayoutType>
-					<LayoutTypeApplyOnStartup>true</LayoutTypeApplyOnStartup>
 					<NetworkType>USER_DEF</NetworkType>
-					<NetworkTypeApplyOnStartup>true</NetworkTypeApplyOnStartup>
 					<ConnectionsPerAgentCode><![CDATA[2]]></ConnectionsPerAgentCode>
 					<ConnectionsRangeCode><![CDATA[50]]></ConnectionsRangeCode>
 					<NeighborLinkFractionCode><![CDATA[0.95]]></NeighborLinkFractionCode>
@@ -19560,7 +19151,7 @@ freeGatheredPassengers( ped );]]></Code>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
 					<VisibleCode><![CDATA[appearanceType == 1]]></VisibleCode>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476802825831</Id>
 					<Name><![CDATA[car1]]></Name>
@@ -19603,7 +19194,7 @@ freeGatheredPassengers( ped );]]></Code>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
 					<VisibleCode><![CDATA[appearanceType == 2]]></VisibleCode>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476802865381</Id>
 					<Name><![CDATA[car2]]></Name>
@@ -19646,7 +19237,7 @@ freeGatheredPassengers( ped );]]></Code>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
 					<VisibleCode><![CDATA[appearanceType == 3]]></VisibleCode>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476802892121</Id>
 					<Name><![CDATA[car3]]></Name>
@@ -19689,7 +19280,7 @@ freeGatheredPassengers( ped );]]></Code>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
 					<VisibleCode><![CDATA[appearanceType == 4]]></VisibleCode>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476802923181</Id>
 					<Name><![CDATA[car4]]></Name>
@@ -19733,7 +19324,7 @@ freeGatheredPassengers( ped );]]></Code>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
 					<VisibleCode><![CDATA[appearanceType == 5]]></VisibleCode>
-				</Figure3D>
+</Figure3D>
 				<Text>
 					<Id>1478186499724</Id>
 					<Name><![CDATA[text]]></Name>
@@ -19817,9 +19408,7 @@ freeGatheredPassengers( ped );]]></Code>
 					<RowsCountCode><![CDATA[100]]></RowsCountCode>
 					<NeigborhoodType>MOORE</NeigborhoodType>
 					<LayoutType>USER_DEF</LayoutType>
-					<LayoutTypeApplyOnStartup>true</LayoutTypeApplyOnStartup>
 					<NetworkType>USER_DEF</NetworkType>
-					<NetworkTypeApplyOnStartup>true</NetworkTypeApplyOnStartup>
 					<ConnectionsPerAgentCode><![CDATA[2]]></ConnectionsPerAgentCode>
 					<ConnectionsRangeCode><![CDATA[50]]></ConnectionsRangeCode>
 					<NeighborLinkFractionCode><![CDATA[0.95]]></NeighborLinkFractionCode>
@@ -21371,7 +20960,7 @@ if ( ped.isDriver && ped.isTrespasser ) {
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -21387,12 +20976,6 @@ if ( ped.isDriver && ped.isTrespasser ) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -21534,7 +21117,7 @@ if ( ped.isDriver && ped.isTrespasser ) {
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -21550,12 +21133,6 @@ if ( ped.isDriver && ped.isTrespasser ) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -21621,6 +21198,9 @@ if ( ped.isDriver && ped.isTrespasser ) {
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onPickup]]></Name>
+							<Value Class="CodeValue">
+								<Code><![CDATA[agent.sit();]]></Code>
+							</Value>
 						</Parameter>
 						<Parameter>
 							<Name><![CDATA[onExit]]></Name>
@@ -21635,7 +21215,7 @@ if ( ped.isDriver && ped.isTrespasser ) {
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -21651,12 +21231,6 @@ if ( ped.isDriver && ped.isTrespasser ) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -21711,7 +21285,7 @@ if ( ped.isDriver && ped.isTrespasser ) {
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -21727,12 +21301,6 @@ if ( ped.isDriver && ped.isTrespasser ) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -21937,7 +21505,7 @@ agent.set_car( original );]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -21953,12 +21521,6 @@ agent.set_car( original );]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -22043,7 +21605,7 @@ agent.set_car( original );]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -22059,12 +21621,6 @@ agent.set_car( original );]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -22134,7 +21690,7 @@ agent.set_car( original );]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -22150,12 +21706,6 @@ agent.set_car( original );]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -22230,7 +21780,7 @@ agent.set_car( original );]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -22246,12 +21796,6 @@ agent.set_car( original );]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -22306,7 +21850,7 @@ agent.set_car( original );]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -22322,12 +21866,6 @@ agent.set_car( original );]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -22424,7 +21962,7 @@ agent.set_car( original );]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -22440,12 +21978,6 @@ agent.set_car( original );]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -22528,7 +22060,7 @@ agent.set_car( original );]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -22544,12 +22076,6 @@ agent.set_car( original );]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -22621,6 +22147,12 @@ agent.set_car( original );]]></Code>
 						<Parameter>
 							<Name><![CDATA[onWayNotFound]]></Name>
 						</Parameter>
+						<Parameter>
+							<Name><![CDATA[parkingLotDestination]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[parkingSpaceIndex]]></Name>
+						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
 					<Replication Class="CodeValue">
@@ -22631,7 +22163,7 @@ agent.set_car( original );]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -22647,12 +22179,6 @@ agent.set_car( original );]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -22749,7 +22275,7 @@ agent.set_car( original );]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -22765,12 +22291,6 @@ agent.set_car( original );]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -22840,7 +22360,7 @@ agent.set_car( original );]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -22856,12 +22376,6 @@ agent.set_car( original );]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -22949,7 +22463,7 @@ agent.set_car( original );]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -22965,12 +22479,6 @@ agent.set_car( original );]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -23034,7 +22542,7 @@ agent.set_car( original );]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -23050,12 +22558,6 @@ agent.set_car( original );]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -23131,6 +22633,12 @@ car.timeEnteringCheckpoint = time();]]></Code>
 						<Parameter>
 							<Name><![CDATA[onWayNotFound]]></Name>
 						</Parameter>
+						<Parameter>
+							<Name><![CDATA[parkingLotDestination]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[parkingSpaceIndex]]></Name>
+						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
 					<Replication Class="CodeValue">
@@ -23141,7 +22649,7 @@ car.timeEnteringCheckpoint = time();]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -23157,12 +22665,6 @@ car.timeEnteringCheckpoint = time();]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -23241,6 +22743,12 @@ hold.unblock();	]]></Code>
 						<Parameter>
 							<Name><![CDATA[onWayNotFound]]></Name>
 						</Parameter>
+						<Parameter>
+							<Name><![CDATA[parkingLotDestination]]></Name>
+						</Parameter>
+						<Parameter>
+							<Name><![CDATA[parkingSpaceIndex]]></Name>
+						</Parameter>
 					</Parameters>
 					<ReplicationFlag>false</ReplicationFlag>
 					<Replication Class="CodeValue">
@@ -23251,7 +22759,7 @@ hold.unblock();	]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -23267,12 +22775,6 @@ hold.unblock();	]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -23289,7 +22791,7 @@ hold.unblock();	]]></Code>
 					<Id>1476704197696</Id>
 					<Name><![CDATA[carInDepthInspectionPoint]]></Name>
 					<X>50</X><Y>1500</Y>
-					<Label><X>20</X><Y>0</Y></Label>
+					<Label><X>15</X><Y>0</Y></Label>
 					<PublicFlag>false</PublicFlag>
 					<PresentationFlag>true</PresentationFlag>
 					<ShowLabel>true</ShowLabel>
@@ -23341,12 +22843,12 @@ hold.unblock();	]]></Code>
 						<Code><![CDATA[100]]></Code>
 					</Replication>
 					<CollectionType>ARRAY_LIST_BASED</CollectionType>
-					<InEnvironment>true</InEnvironment>	
+					<InEnvironment>true</InEnvironment>
 					<InitialSpeedCode Class="CodeUnitValue">
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -23362,12 +22864,6 @@ hold.unblock();	]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -23681,7 +23177,7 @@ hold.unblock();	]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -23697,12 +23193,6 @@ hold.unblock();	]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -23902,7 +23392,7 @@ hold.unblock();	]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -23918,12 +23408,6 @@ hold.unblock();	]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -23992,12 +23476,12 @@ hold.unblock();	]]></Code>
 						<Code><![CDATA[3]]></Code>
 					</Replication>
 					<CollectionType>ARRAY_LIST_BASED</CollectionType>
-					<InEnvironment>true</InEnvironment>	
+					<InEnvironment>true</InEnvironment>
 					<InitialSpeedCode Class="CodeUnitValue">
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -24013,12 +23497,6 @@ hold.unblock();	]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -24091,7 +23569,7 @@ hold.unblock();	]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -24107,12 +23585,6 @@ hold.unblock();	]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -24178,7 +23650,7 @@ hold.unblock();	]]></Code>
 						<Parameter>
 							<Name><![CDATA[onEnter]]></Name>
 							<Value Class="CodeValue">
-								<Code><![CDATA[//if all except trespasser are gathered, they are freed from block 'waitAllToBeChecked'
+								<Code><![CDATA[// if all except trespasser are gathered, they are freed from block 'waitAllToBeChecked'
 freeGatheredPassengers( ped );]]></Code>
 							</Value>
 						</Parameter>
@@ -24204,7 +23676,7 @@ freeGatheredPassengers( ped );]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -24220,12 +23692,6 @@ freeGatheredPassengers( ped );]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -24271,7 +23737,7 @@ freeGatheredPassengers( ped );]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -24287,12 +23753,6 @@ freeGatheredPassengers( ped );]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -24381,7 +23841,7 @@ freeGatheredPassengers( ped );]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -24397,12 +23857,6 @@ freeGatheredPassengers( ped );]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -24487,7 +23941,7 @@ freeGatheredPassengers( ped );]]></Code>
 							<Name><![CDATA[onBeginWait]]></Name>
 							<Value Class="CodeValue">
 								<Code><![CDATA[ped.car.nPassengersAllowedToCross++;
-//if last passenger of car entered the block, all passengers of this car are released
+// if last passenger of car entered the block, all passengers of this car are released
 freeGatheredPassengers( ped );]]></Code>
 							</Value>
 						</Parameter>
@@ -24516,7 +23970,7 @@ freeGatheredPassengers( ped );]]></Code>
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -24532,12 +23986,6 @@ freeGatheredPassengers( ped );]]></Code>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -24755,7 +24203,7 @@ if (i.getSpace().equals(main.busCrossCheckpoint)) {
 						<Code><![CDATA[100]]></Code>
 					</Replication>
 					<CollectionType>ARRAY_LIST_BASED</CollectionType>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -24771,12 +24219,6 @@ if (i.getSpace().equals(main.busCrossCheckpoint)) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -24858,7 +24300,7 @@ if (i.getSpace().equals(main.busCrossCheckpoint)) {
 						<Code><![CDATA[100]]></Code>
 					</Replication>
 					<CollectionType>ARRAY_LIST_BASED</CollectionType>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -24874,12 +24316,6 @@ if (i.getSpace().equals(main.busCrossCheckpoint)) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -24972,7 +24408,7 @@ if (i.spacePrevious != null) {
 						<Code><![CDATA[100]]></Code>
 					</Replication>
 					<CollectionType>ARRAY_LIST_BASED</CollectionType>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<XCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</XCode>
@@ -24988,12 +24424,6 @@ if (i.spacePrevious != null) {
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -25096,7 +24526,7 @@ if (i.spacePrevious != null) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -25112,12 +24542,6 @@ if (i.spacePrevious != null) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -25604,7 +25028,7 @@ if (i.spacePrevious != null) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -25620,12 +25044,6 @@ if (i.spacePrevious != null) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -25739,7 +25157,7 @@ if (i.spacePrevious != null) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -25755,12 +25173,6 @@ if (i.spacePrevious != null) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -25882,7 +25294,7 @@ if (i.spacePrevious != null) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -25898,12 +25310,6 @@ if (i.spacePrevious != null) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -26024,7 +25430,7 @@ if (i.spacePrevious != null) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -26040,12 +25446,6 @@ if (i.spacePrevious != null) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -26166,7 +25566,7 @@ if (i.spacePrevious != null) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -26182,12 +25582,6 @@ if (i.spacePrevious != null) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -26308,7 +25702,7 @@ if (i.spacePrevious != null) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -26324,12 +25718,6 @@ if (i.spacePrevious != null) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -26450,7 +25838,7 @@ if (i.spacePrevious != null) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -26466,12 +25854,6 @@ if (i.spacePrevious != null) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -26592,7 +25974,7 @@ if (i.spacePrevious != null) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -26608,12 +25990,6 @@ if (i.spacePrevious != null) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -26734,7 +26110,7 @@ if (i.spacePrevious != null) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -26750,12 +26126,6 @@ if (i.spacePrevious != null) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -26876,7 +26246,7 @@ if (i.spacePrevious != null) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -26892,12 +26262,6 @@ if (i.spacePrevious != null) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -27277,7 +26641,7 @@ if (i.spacePrevious != null) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -27293,12 +26657,6 @@ if (i.spacePrevious != null) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -27412,7 +26770,7 @@ if (i.spacePrevious != null) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -27428,12 +26786,6 @@ if (i.spacePrevious != null) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -28888,7 +28240,7 @@ if (i.spacePrevious != null) {
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+</Figure3D>
 				<Figure3D>
 					<Id>1476784715795</Id>
 					<Name><![CDATA[policeman]]></Name>
@@ -28948,7 +28300,7 @@ if (i.spacePrevious != null) {
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+</Figure3D>
 			</Presentation>
 
 				</Group>
@@ -29204,7 +28556,7 @@ if (i.spacePrevious != null) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -29220,12 +28572,6 @@ if (i.spacePrevious != null) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -29388,7 +28734,7 @@ if (i.spacePrevious != null) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -29404,12 +28750,6 @@ if (i.spacePrevious != null) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -29527,7 +28867,7 @@ if (i.spacePrevious != null) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -29543,12 +28883,6 @@ if (i.spacePrevious != null) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -29666,7 +29000,7 @@ if (i.spacePrevious != null) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -29682,12 +29016,6 @@ if (i.spacePrevious != null) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -29844,7 +29172,7 @@ if (i.spacePrevious != null) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -29860,12 +29188,6 @@ if (i.spacePrevious != null) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -30073,7 +29395,7 @@ if (i.spacePrevious != null) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -30089,12 +29411,6 @@ if (i.spacePrevious != null) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -30257,7 +29573,7 @@ if (i.spacePrevious != null) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -30273,12 +29589,6 @@ if (i.spacePrevious != null) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -30396,7 +29706,7 @@ if (i.spacePrevious != null) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -30412,12 +29722,6 @@ if (i.spacePrevious != null) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -30580,7 +29884,7 @@ if (i.spacePrevious != null) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -30596,12 +29900,6 @@ if (i.spacePrevious != null) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -30806,7 +30104,7 @@ if (i.spacePrevious != null) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -30822,12 +30120,6 @@ if (i.spacePrevious != null) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -30945,7 +30237,7 @@ if (i.spacePrevious != null) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -30961,12 +30253,6 @@ if (i.spacePrevious != null) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -31129,7 +30415,7 @@ if (i.spacePrevious != null) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -31145,12 +30431,6 @@ if (i.spacePrevious != null) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -31361,7 +30641,7 @@ if (i.spacePrevious != null) {
 							<Code><![CDATA[100]]></Code>
 						</Replication>
 						<CollectionType>ARRAY_LIST_BASED</CollectionType>
-						<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
+						<InitialLocationType>XYZ</InitialLocationType>
 						<XCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</XCode>
@@ -31377,12 +30657,6 @@ if (i.spacePrevious != null) {
 						<RowCode Class="CodeValue">
 							<Code><![CDATA[0]]></Code>
 						</RowCode>
-						<LatitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LatitudeCode>
-						<LongitudeCode Class="CodeValue">
-							<Code><![CDATA[0]]></Code>
-						</LongitudeCode>
 						<LocationNameCode Class="CodeValue">
 							<Code><![CDATA[""]]></Code>
 						</LocationNameCode>
@@ -31502,9 +30776,7 @@ if (i.spacePrevious != null) {
 					<RowsCountCode><![CDATA[100]]></RowsCountCode>
 					<NeigborhoodType>MOORE</NeigborhoodType>
 					<LayoutType>USER_DEF</LayoutType>
-					<LayoutTypeApplyOnStartup>true</LayoutTypeApplyOnStartup>
 					<NetworkType>USER_DEF</NetworkType>
-					<NetworkTypeApplyOnStartup>true</NetworkTypeApplyOnStartup>
 					<ConnectionsPerAgentCode><![CDATA[2]]></ConnectionsPerAgentCode>
 					<ConnectionsRangeCode><![CDATA[50]]></ConnectionsRangeCode>
 					<NeighborLinkFractionCode><![CDATA[0.95]]></NeighborLinkFractionCode>
@@ -31888,33 +31160,18 @@ if ( checkPoint.id < checkpoints.size() )
 						<Code><![CDATA[3]]></Code>
 					</Replication>
 					<CollectionType>ARRAY_LIST_BASED</CollectionType>
-					<InEnvironment>true</InEnvironment>	
+					<InEnvironment>true</InEnvironment>
 					<InitialSpeedCode Class="CodeUnitValue">
 						<Code><![CDATA[10]]></Code>
 						<Unit Class="SpeedUnits"><![CDATA[MPS]]></Unit>
 					</InitialSpeedCode>
-					<InitialLocationType>AT_ANIMATION_POSITION</InitialLocationType>
-					<XCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</XCode>
-					<YCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</YCode>
-					<ZCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</ZCode>
+					<InitialLocationType>XYZ</InitialLocationType>
 					<ColumnCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</ColumnCode>
 					<RowCode Class="CodeValue">
 						<Code><![CDATA[0]]></Code>
 					</RowCode>
-					<LatitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LatitudeCode>
-					<LongitudeCode Class="CodeValue">
-						<Code><![CDATA[0]]></Code>
-					</LongitudeCode>
 					<LocationNameCode Class="CodeValue">
 						<Code><![CDATA[""]]></Code>
 					</LocationNameCode>
@@ -31955,7 +31212,6 @@ if ( checkPoint.id < checkpoints.size() )
 					<EmbeddedIcon>false</EmbeddedIcon>
 					<Z>0</Z>
 					<Rotation>0.0</Rotation>
-					<DrawingMode>AGENT_CURRENT_POSITION</DrawingMode>
 					<ScaleType>AUTOMATICALLY_CALCULATED</ScaleType>
 					<GISScaleForRealEmbeddedObjectPresentationSize>1000</GISScaleForRealEmbeddedObjectPresentationSize>
 					<GISScaleForFixedEmbeddedObjectPresentationSize>1000000000</GISScaleForFixedEmbeddedObjectPresentationSize>
@@ -32066,9 +31322,7 @@ if ( checkPoint.id < checkpoints.size() )
 					<RowsCountCode><![CDATA[100]]></RowsCountCode>
 					<NeigborhoodType>MOORE</NeigborhoodType>
 					<LayoutType>USER_DEF</LayoutType>
-					<LayoutTypeApplyOnStartup>true</LayoutTypeApplyOnStartup>
 					<NetworkType>USER_DEF</NetworkType>
-					<NetworkTypeApplyOnStartup>true</NetworkTypeApplyOnStartup>
 					<ConnectionsPerAgentCode><![CDATA[2]]></ConnectionsPerAgentCode>
 					<ConnectionsRangeCode><![CDATA[50]]></ConnectionsRangeCode>
 					<NeighborLinkFractionCode><![CDATA[0.95]]></NeighborLinkFractionCode>
@@ -32224,7 +31478,7 @@ if ( checkPoint.id < checkpoints.size() )
 					<ApplyShading>true</ApplyShading>
 					<InternalLighting>OFF</InternalLighting>
 					<IgnoreSceneLights>false</IgnoreSceneLights>
-				</Figure3D>
+</Figure3D>
 				<Rectangle>
 					<Id>1481209115411</Id>
 					<Name><![CDATA[rectangle]]></Name>
@@ -32253,7 +31507,7 @@ if ( checkPoint.id < checkpoints.size() )
 			</Presentation>
 
 		</ActiveObjectClass>
-	</ActiveObjectClasses>	
+	</ActiveObjectClasses>
 	<DifferentialEquationsMethod>EULER</DifferentialEquationsMethod>
 	<MixedEquationsMethod>RK45_NEWTON</MixedEquationsMethod>
 	<AlgebraicEquationsMethod>MODIFIED_NEWTON</AlgebraicEquationsMethod>
@@ -32326,7 +31580,7 @@ if ( checkPoint.id < checkpoints.size() )
 			</ExportExcelResourceReference>
 		</ExportSettings>
 	</Database>
-	
+
 	<RunConfiguration ActiveObjectClassId="1476194976771">
 		<Id>1488556906451</Id>
 		<Name><![CDATA[RunConfiguration]]></Name>
@@ -32387,7 +31641,7 @@ if ( checkPoint.id < checkpoints.size() )
     		</RunConfigurationOutput>
 		</Outputs>
 	</RunConfiguration>
-	<Experiments>	
+	<Experiments>
 		<!--   =========   Simulation Experiment   ========  -->
 		<SimulationExperiment ActiveObjectClassId="1476194976771">
 			<Id>1476194976786</Id>
@@ -32669,7 +31923,7 @@ Suspicious cars can be also sent
 to the full car inspection box.
 
 All travalers who arrive by bus get off it
- in a special area in the immediate vicinity 
+in a special area in the immediate vicinity 
 of the border checkpoint. They form a
 queue at the border guard office where
 two border guards check their documents
@@ -32773,7 +32027,7 @@ interoperate:
 					<Color>-16777216</Color>
 					<Text><![CDATA[In this modified version of the "Border Checkpoint" model, the schedule for inspectors and arrivals of busses and cars are parameterized from an Excel file.
 The model parameters allow a choice to override any of these schedules with a constant value; this can also be changed during runtime.
-With this change, you can optimize for the inputs during any one of the shifts]]></Text>
+With this change, you can optimize for the inputs during any one of the shifts.]]></Text>
 					<Font>
 						<Name>Serif</Name>
 						<Size>12</Size>
@@ -33154,9 +32408,34 @@ Rate]]></Text>
 						<Link>carRateValue</Link>
 					</ExtendedProperties>
 				</Control>
+				<Text>
+					<Id>1721415127852</Id>
+					<Name><![CDATA[text7]]></Name>
+					<X>800</X><Y>450</Y>
+					<Label><X>0</X><Y>-10</Y></Label>
+					<PublicFlag>true</PublicFlag>
+					<PresentationFlag>true</PresentationFlag>
+					<ShowLabel>false</ShowLabel>
+					<DrawMode>SHAPE_DRAW_2D</DrawMode>
+					<EmbeddedIcon>false</EmbeddedIcon>
+					<Z>0</Z>
+					<Rotation>0.0</Rotation>
+					<Color>-16777216</Color>
+					<Text><![CDATA[Run an RL experiment with ALPyne. 
+See more at https://github.com/the-anylogic-company/Alpyne
+Or open current model folder 
+(right click on the model and choose "Open Model Folder") 
+and check the README file]]></Text>
+					<Font>
+						<Name>Serif</Name>
+						<Size>12</Size>
+						<Style>0</Style>
+					</Font>
+					<Alignment>RIGHT</Alignment>
+				</Text>
 			</Presentation>
 
-			<Parameters>			
+			<Parameters>
 				<Parameter>
 					<ParameterName><![CDATA[useCarInspectorsSchedule]]></ParameterName>
 					<ParameterValue Class="CodeValue">
@@ -33205,21 +32484,21 @@ Rate]]></Text>
 						<Code><![CDATA[busRateValue]]></Code>
 					</ParameterValue>
 				</Parameter>
-			</Parameters>			
+			</Parameters>
 			<PresentationProperties>
-				<EnableZoomAndPanning>true</EnableZoomAndPanning>
+				<EnableZoomAndPanning>false</EnableZoomAndPanning>
 				<ExecutionMode><![CDATA[realTimeScaled]]></ExecutionMode>
-				<Title><![CDATA[Border Checkpoint : Simulation]]></Title>	
+				<Title><![CDATA[Border Checkpoint : Simulation]]></Title>
 				<EnableDeveloperPanel>true</EnableDeveloperPanel>
 				<ShowDeveloperPanelOnStart>false</ShowDeveloperPanelOnStart>
 				<RealTimeScale>1.0</RealTimeScale>
 			</PresentationProperties>
 			<ModelTimeProperties>
 				<StopOption><![CDATA[Stop at specified date]]></StopOption>
-				<InitialDate><![CDATA[1476144000000]]></InitialDate>	
-				<InitialTime><![CDATA[0.0]]></InitialTime>	
-				<FinalDate><![CDATA[1476230400000]]></FinalDate>	
-				<FinalTime><![CDATA[1440.0]]></FinalTime>	
+				<InitialDate><![CDATA[1476144000000]]></InitialDate>
+				<InitialTime><![CDATA[0.0]]></InitialTime>
+				<FinalDate><![CDATA[1476230400000]]></FinalDate>
+				<FinalTime><![CDATA[1440.0]]></FinalTime>
 			</ModelTimeProperties>
 			<BypassInitialScreen>false</BypassInitialScreen>
 		</SimulationExperiment>	
