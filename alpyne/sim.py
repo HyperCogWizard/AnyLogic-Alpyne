@@ -9,7 +9,6 @@ from tempfile import TemporaryDirectory
 from typing import Any
 import socket
 from pathlib import Path
-from warnings import warn
 
 import psutil as psutil
 import requests
@@ -448,8 +447,8 @@ class AnyLogicSim:
         status = SimStatus(**data)
 
         # when the message it passed, assume some important, but non-halting issue
-        if status.message:  # TODO throw runtime error instead?
-            warn(status.message)
+        if status.message:
+            self.log.warning(status.message)
         return status
 
 
