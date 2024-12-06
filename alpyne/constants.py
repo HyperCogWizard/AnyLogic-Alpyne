@@ -5,12 +5,12 @@ from enum import Enum, Flag, auto
 from alpyne.outputs import DataSet, StatisticsDiscrete, StatisticsContinuous, HistogramSimpleData, \
     HistogramSmartData, Histogram2DData, TimeUnits
 
-DATE_PATTERN_LOOKUP = {  # TODO confirm these work as expected
+DATE_PATTERN_LOOKUP = { 
     r"^\d{4}-\d{2}-\d{2}$": "%Y-%m-%d",
     r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$": "%Y-%m-%dT%H:%M:%S",
     r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{1,6}$": "%Y-%m-%dT%H:%M:%S.%f",
     r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{1,6}[-+]\d{2,6}\.*\d*$": "%Y-%m-%dT%H:%M:%S.%f%z",
-    r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{1,6}[-+](?:\d{2}:*)+(?:\.\d+)*$": "%Y-%m-%dT%H:%M:%S.%f%:z",  # only for 3.12+
+    r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{1,6}[-+](?:\d{2}:*)+(?:\.\d+)*$": "%Y-%m-%dT%H:%M:%S.%f%z",  # only for 3.12+. Parse datetimes like '2013-11-05T13:13:13.000112+12:30'
     r"^[A-Za-z]{3}, \d{2} [A-Za-z]{3} \d{4} \d{2}:\d{2}:\d{2}[ A-Z]{0,4}$": "%a, %d %b %Y %H:%M:%S %Z"
 }
 """Constant mapping between a regex for valid date/time pattern and the equivalent datetime.strftime/strptime pattern"""
