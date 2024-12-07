@@ -49,6 +49,7 @@ class AnyLogicSim:
                  java_exe: str = None,
                  startup_delay: float = 0.1,
                  java_remote_debug: bool = False,
+                 max_server_await_time: float = 6.0,
                  **kwargs):
         """
         Initialize a connection to the simulation model, with arguments for defining the model setup
@@ -80,6 +81,7 @@ class AnyLogicSim:
           sending the first request to verify it's alive. Too small and it may incorrectly detect as not started up;
           too large and it adds to startup overhead. Default 0.1
         :param java_remote_debug: Allow to attach remote java debugger to the model started as standalone java application; defaults to False
+        :param max_server_await_time: Set the maximum waiting time for the server to start
         :param kwargs: Internal arguments
         :raises ModelError: if the app fails to start
 
@@ -125,9 +127,8 @@ class AnyLogicSim:
         self._base_url = f"{kwargs.get('host') or 'http://127.0.0.1'}:{port}"
         self._session = requests.Session()
 
-        # may need more than fraction of time in `_start_app` for the server to be set up
         set_schema, time_start = False, time.time()
-        while not set_schema and (time.time() - time_start <= 2):
+        while not set_schema and (time.time() - time_start <= max_server_await_time):
             try:
                 AnyLogicSim.schema = SimSchema(
                     self._session.get(f"{self._base_url}/version").json()
@@ -136,6 +137,7 @@ class AnyLogicSim:
             except:
                 time.sleep(0.5)
         if not set_schema:
+            self.log.error(f"Application failed to start. SimSchema can't be loaded from server: time {time.time() - time_start} out of max await time {max_server_await_time}. Try to increase max_server_await_time")
             raise ModelError(f"The underlying application failed to start. Check the logs.")
 
         # setup the `engine_settings` instance variable to store the desired values to use
