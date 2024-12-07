@@ -48,6 +48,7 @@ class AnyLogicSim:
                  lock_defaults: dict = None,
                  java_exe: str = None,
                  startup_delay: float = 0.1,
+                 java_remote_debug: bool = False,
                  **kwargs):
         """
         Initialize a connection to the simulation model, with arguments for defining the model setup
@@ -78,6 +79,7 @@ class AnyLogicSim:
         :param startup_delay: Seconds to wait between launching the application and
           sending the first request to verify it's alive. Too small and it may incorrectly detect as not started up;
           too large and it adds to startup overhead. Default 0.1
+        :param java_remote_debug: Allow to attach remote java debugger to the model started as standalone java application; defaults to False
         :param kwargs: Internal arguments
         :raises ModelError: if the app fails to start
 
@@ -89,7 +91,7 @@ class AnyLogicSim:
         """
         if port == 0:
             port = find_free_port()
-
+        
         if py_log_level is True:
             py_log_level = logging.INFO
         elif py_log_level is False:
@@ -115,7 +117,7 @@ class AnyLogicSim:
         try:
             self._temp_dir = None  # only populated if passed as zip
             self._proc = self._start_app(java_exe_path, model_path, port, java_log_level, log_id,
-                                         auto_finish, startup_delay)
+                                         auto_finish, startup_delay, java_remote_debug)
         except:
             raise ModelError(f"Failed to properly start the app. Check the logs.")
 
@@ -188,7 +190,7 @@ class AnyLogicSim:
 
     def _start_app(self, java_exe_path: str, model_path: str, port: int,
                    java_log_level: int | str | bool | JavaLogLevel, log_id: str,
-                   auto_finish: bool, startup_delay: float = 0.1) -> subprocess.Popen:
+                   auto_finish: bool, startup_delay: float = 0.1, java_remote_debug: bool = False) -> subprocess.Popen:
         """
         Execute the backend app with the desired preferences.
 
@@ -199,6 +201,7 @@ class AnyLogicSim:
         :param log_id:
         :param auto_finish:
         :param startup_delay:
+        :param java_remote_debug 
         """
         # get the directory for the model, optionally extracting it to a temp dir if necessary
         model_jar, self._temp_dir = resolve_model_jar(model_path)
@@ -237,8 +240,11 @@ class AnyLogicSim:
             java_log_level = JavaLogLevel.from_py_level(java_log_level)
 
         # preliminary list of arguments
-        cmdline_args = [java_exe_path,
-                        "-cp", class_path,
+        cmdline_args = [java_exe_path]
+        if java_remote_debug:
+            debug_port = find_free_port()
+            cmdline_args.append(f"-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address={debug_port}")
+        cmdline_args += ["-cp", class_path,
                         "com.anylogic.alpyne.AlpyneServer",
                         "-p", f"{port}",
                         "-l", java_log_level.name,
