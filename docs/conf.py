@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.getcwd(), "..")))
 
 project = "Alpyne"
 copyright = "2024, AnyLogic North America, LLC"
-author = "Tyler Wolfe-Adam"
+author = "AnyLogic"
 
 # The short X.Y version
 version = "1.2"
@@ -75,7 +75,7 @@ html_logo = "./_static/alpyne_logo_3.png"
 # -- Extension configuration -------------------------------------------------
 
 ## rst2pdf settings
-pdf_documents = [('index', u'alpyne-doc', u'Alpyne Documentation', u'Tyler Wolfe-Adam'),]
+pdf_documents = [('index', u'alpyne-doc', u'Alpyne Documentation', u'AnyLogic'),]
 pdf_toc_depth = 2
 # If false, no index is generated, default True.
 pdf_use_index = True

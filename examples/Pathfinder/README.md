@@ -2,7 +2,6 @@
 
 This model is a toy environment depicting an agent on an 8x8 grid which has a number of "holes" the agent is trying to avoid and one "goal" space that the agent is attempting to get to. Various options allow you to control how "dangerous" the environment is and the what directions the agent is allowed to move in. 
 
-
 ## Usage
 
 The model's Main agent has a "mode" parameter that can be in one of four operational modes:
@@ -39,6 +38,7 @@ Note: The engine's seed determines the initial placements of all spaces and the 
 | pos   | int[]   | An array containing the agent's current row and column (0 indexed) |
 
 ### Stop condition
+
 If the agent is inside a hole or the goal
 
 ### Action

@@ -3,7 +3,6 @@ Border Checkpoint Optimization
 
 This is a modified version of the example from the built-in repository called "Border Checkpoint". It represents the process of crossing an international border at an official checkpoint. Passport control and vehicle inspection processes are separated for tourists arriving by buses and those who travel by car. There exists two resource pools for the bus inspectors and car inspectors; standard inspection requires one of each resource, however in depth car searches require two inspectors - whether two car inspectors (preferred) or one of each.
 
-
 ## Usage
 
 To start, open the model's source and export it as a zip inside the "ModelExported" folder just like "ModelExported/BorderCheckpointOptimization.zip". As the provided optimize.py script is written to execute parallel runs and the model includes a database, it's required to keep it as a zip file.

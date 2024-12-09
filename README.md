@@ -12,7 +12,7 @@ All contributions, including new or improved example models and training scripts
 
 Installation
 ------------
-Alpyne supports Python 3.10+ and requirements the latest version of AnyLogic (as of Mar 2024: v8.8.6).
+Alpyne supports Python 3.10+ and requirements the latest version of AnyLogic (natively was created on Mar 2024: v8.8.6).
 
 To install this library with its base minimum components, use ``pip install anylogic-alpyne``
 
@@ -42,9 +42,9 @@ Note that some examples require additional libraries to be added in your AnyLogi
 
 Before running the example scripts, you'll need to first export them from AnyLogic. To run them without any modifications, you'll need to do the following:
 
-1. Open the given model in AnyLogic (e.g., `examples/Pathfinder/ModelSource/Pathfinder.alp`)
-2. In the properties of its RL Experiment, click the export button at the top; save the zip file inside a folder named "ModelExported" to sit alongside the "ModelSource" folder
-3. Most examples are setup expecting the zip file to be unpacked in-place (such that the file `ModelExported/model.jar` is valid); see the individual models' README for more specifics.
+1. Open the given model in AnyLogic (e.g., `examples/Pathfinder/Pathfinder.alp`)
+2. In the properties of its RL Experiment, click the export button at the top; save the zip file inside a folder named "ModelExported" 
+3. Most examples are setup expecting the zip file to be unpacked in-place (such that the file `ModelExported/model.jar` is valid); see the individual models' README for more specifics
 4. Run the associated Python script
 
 Contributing

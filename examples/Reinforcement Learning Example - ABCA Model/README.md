@@ -47,6 +47,7 @@ Note: the intended observation for a learning policy is similar to the one the e
 | costPerProduct       | double | The all-included total cost per product                              |
 
 ### Stop condition
+
 If either queue (for resource A or resource B) reaches its capacity
 
 ### Action
