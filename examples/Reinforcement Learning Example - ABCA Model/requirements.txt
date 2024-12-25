@@ -1,5 +1,5 @@
 anylogic-alpyne
 numpy>=1.19.5
-gymnasium
-stable-baselines3
+gymnasium==0.29.1
+stable_baselines3[extra]
 tabulate
