@@ -1,13 +1,13 @@
 from setuptools import setup, find_packages
 
-with open("README.md") as f:
+with open("README.md", encoding="utf-8") as f:
     long_description = f.read()
 
 setup(
     name="anylogic-alpyne",
     version='1.2.1',
     author="AnyLogic",
-    author_email="info@anylogic.com",
+    author_email="support@anylogic.com",
     description="Run AnyLogic models exported from the RL Experiment",
     long_description=long_description,
     long_description_content_type="text/markdown",

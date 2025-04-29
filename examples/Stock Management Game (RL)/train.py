@@ -5,8 +5,8 @@ from typing import SupportsFloat, Any
 import numpy as np
 from gymnasium import spaces
 from gymnasium.core import ActType, ObsType, RenderFrame
-from gymnasium.experimental.wrappers import RescaleObservationV0
-from gymnasium.experimental.wrappers.lambda_action import RescaleActionV0
+from gymnasium.wrappers import RescaleObservation
+from gymnasium.wrappers.transform_action import RescaleAction
 from gymnasium.wrappers import NormalizeReward
 from stable_baselines3 import PPO
 from stable_baselines3.common.callbacks import EvalCallback
@@ -101,8 +101,8 @@ if __name__ == '__main__':
     # wrap sim in our custom gym environment, then in other transformative wrappers
     env = StockGameEnv(sim)
     env = NormalizeReward(env)
-    env = RescaleObservationV0(env, -1, 1)
-    env = RescaleActionV0(env, -1, 1)
+    env = RescaleObservation(env, -1, 1)
+    env = RescaleAction(env, -1, 1)
     env = DummyVecEnv([lambda: Monitor(env)])
 
     eval_callback = EvalCallback(env,

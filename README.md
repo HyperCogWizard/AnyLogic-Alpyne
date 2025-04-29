@@ -60,4 +60,4 @@ General guidelines for examples:
 - Models and scripts should be reasonably organized or structured (e.g., for models: aligned elements, clean flowchart connectors)
 - Use standard conventions where relevant (e.g., TitledClassNames, camelCaseJavaVariables, snake_case_python_variables)
 
-⚠ It's suggested to make a discussion post before spending too much time on an idea to avoid chancing it being rejected down the line
+It's suggested to make a discussion post before spending too much time on an idea to avoid chancing it being rejected down the line
