@@ -39,7 +39,8 @@ extensions = [
     'sphinx_rtd_theme',
     'sphinx.ext.githubpages',
     'enum_tools.autoenum',
-    'rst2pdf.pdfbuilder'
+    'rst2pdf.pdfbuilder',
+    'sphinxcontrib.mermaid'
 ]
 
 # Add any paths that contain templates here, relative to this directory.

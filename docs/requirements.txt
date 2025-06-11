@@ -5,3 +5,4 @@ rst2pdf==0.101
 psutil
 numpy
 gymnasium
+sphinxcontrib-mermaid
