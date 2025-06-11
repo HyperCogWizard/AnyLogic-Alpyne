@@ -11,6 +11,7 @@ An connector library for running AnyLogic models exported from the RL experiment
 	get-started
 	components-rlready-model
 	walkthrough
+	architecture
 
 
 .. toctree::
